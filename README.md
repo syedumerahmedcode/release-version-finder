@@ -108,7 +108,9 @@ All relevant parts of pom.xml are described below with comments.
 Run the following command
 > mvn clean install
 
-After executin is complete, go to .....
+After executin is complete, go to target folder and extract the generated  jar file.
+
+Once extracted, please go to target/{generated file}/BOOT-INF/classes and open **build-info.properties**. This contains the values extracted from the pom.xml. One possible application is in Continuous Integration where these infos can be extracted by the pipeline for subequent report generation.
 
 ## Contact Information
 
