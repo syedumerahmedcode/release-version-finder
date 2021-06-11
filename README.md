@@ -5,6 +5,10 @@
 - [Introduction](#introduction)
 - [Technologies Used](#technologies-used)
 - [Explanation](#explanation)
+  - [Properties](#properties)
+  - [Build resources](#build-resources)
+  - [maven-resources-plugin](#maven-resources-plugin)
+  - [build-helper-maven-plugin](#build-helper-maven-plugin)
 - [How to execute](#how-to-execute)
 - [Contact Information](#contact-information)
 
