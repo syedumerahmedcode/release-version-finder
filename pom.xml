@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.umer</groupId>
+	<artifactId>release-version-finder</artifactId>
+	<version>1.2.3-SNAPSHOT</version>
+	<name>release-version-finder</name>
+	<description>Demo project for finding the release version number from pom</description>
+	
+	<properties>
+		<java.version>11</java.version>
+		<!-- Properties defined here override the ones defined in src/main/resources/build-info.properties.-->
+		<!-- If the property is not defined here, default property is used in build-info.properties -->
+		
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<!-- Ideally speaking, this should be left blank and later filed out by ci. For now, it is hard-coded -->
+		<build.branch>master</build.branch>	
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+		<!-- This ensures that build-info properties file is used for processing. -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+			<!--  This is required for version to be extracted. Without it, build-helper-maven-plugin will not work.-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<!-- This means that $(default delimitier) is used -->
+					<useDefaultDelimiters>true</useDefaultDelimiters>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- This plugin fills the build-info file with values. -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<id>parse-version</id>
+						<goals>
+							<goal>parse-version</goal>
+						</goals>
+						<configuration>
+							<!-- The property prefix which is used for checking variables in build-info properties file. -->
+							<propertyPrefix>parsedVersion</propertyPrefix>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
