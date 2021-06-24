@@ -10,6 +10,7 @@
   - [maven-resources-plugin](#maven-resources-plugin)
   - [build-helper-maven-plugin](#build-helper-maven-plugin)
 - [How to execute](#how-to-execute)
+- [Github Actions](#github-actions)
 - [Contact Information](#contact-information)
 
 ## Introduction
@@ -21,6 +22,7 @@ This project uses maven plugins to write important release information such as m
 - Java 11
 - [SpringBoot](https://start.spring.io/): Used to create easy stand-alone, production-grade Spring based Applications.
 - [Maven](https://maven.apache.org/): Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
+- [Git Actions](https://docs.github.com/en/actions): GitHub Actions helps automate tasks within the software development life cycle. GitHub Actions are event-driven, meaning that you can run a series of commands after a specified event has occurred. They happen directly on the Github repo itself.
 
 
 ## Explanation
@@ -115,6 +117,9 @@ Run the following command
 After executin is complete, go to target folder and extract the generated  jar file.
 
 Once extracted, please go to target/{generated file}/BOOT-INF/classes and open **build-info.properties**. This contains the values extracted from the pom.xml. One possible application is in Continuous Integration where these infos can be extracted by the pipeline for subequent report generation.
+
+## Github Actions
+To ensure the correctness of the code committed, github action for 'building the java project using Maven' is used. This ensures that all tests are green and the projects runs correctly on Windows, MacOS and Linux systems.
 
 ## Contact Information
 
