@@ -11,6 +11,7 @@
   - [build-helper-maven-plugin](#build-helper-maven-plugin)
 - [How to execute](#how-to-execute)
 - [Github Actions](#github-actions)
+- [Contribution](#contribution)
 - [Contact Information](#contact-information)
 
 ## Introduction
@@ -120,6 +121,10 @@ Once extracted, please go to target/{generated file}/BOOT-INF/classes and open *
 
 ## Github Actions
 To ensure the correctness of the code committed, github action for 'building the java project using Maven' is used. This ensures that all tests are green and the projects runs correctly on Windows, MacOS and Linux systems.
+
+## Contribution
+
+Feature requests, issues, pull requests and questions are welcome.
 
 ## Contact Information
 
