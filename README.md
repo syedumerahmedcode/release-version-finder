@@ -124,7 +124,7 @@ To ensure the correctness of the code committed, github action for 'building the
 
 ## Contribution
 
-Feature requests, issues, pull requests and questions are welcome.
+Feature requests, issues, pull requests and questions are welcome. -
 
 ## Contact Information
 
